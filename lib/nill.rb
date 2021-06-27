@@ -1,12 +1,19 @@
-html = <<-HTML
-<select name="game_console">
-<option value="none"></option>
-<option value="wii_u" selected>Wii U</option>
-<option value="ps4">プレステ4</option>
-<option value="gb">ゲームボーイ</option>
-</select>
-HTML
+class User
+   attr_reader :first_name, :last_name, :age
 
-replaced = html.gsub(/<option value="(\w+)"(?: selected)?>(.*)<\/option>/, '\1,\2')
+  def initialize(first_name, last_name, age)
+    @first_name = first_name
+    @last_name = last_name
+    @age = age
+  end
+end
 
-puts replaced
+users = []
+users << User.new('Alice', 'Ruby', 20)
+users << User.new('Bob', 'Python', 30)
+
+alice = User.new('Alice', 'Ruby', 15)
+
+p users[1].first_name
+
+p alice.age

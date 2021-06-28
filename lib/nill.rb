@@ -1,19 +1,10 @@
-class User
-   attr_reader :first_name, :last_name, :age
+module Loggable
 
-  def initialize(first_name, last_name, age)
-    @first_name = first_name
-    @last_name = last_name
-    @age = age
+  def log(text)
+    puts "[LOG] #{text}"
   end
 end
 
-users = []
-users << User.new('Alice', 'Ruby', 20)
-users << User.new('Bob', 'Python', 30)
-
-alice = User.new('Alice', 'Ruby', 15)
-
-p users[1].first_name
-
-p alice.age
+class Product
+  extend Loggable
+  def self.create_products(names)
